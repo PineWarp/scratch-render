@@ -36,9 +36,9 @@ const __cpuTouchingColorPixelCount = 4e4;
 /**
  * Whether two uniform values are the same, for the purpose of skipping a
  * redundant upload. Uniform values are numbers or small numeric arrays.
- * @param {*} a
- * @param {*} b
- * @returns {boolean}
+ * @param {*} a One uniform value.
+ * @param {*} b The other uniform value.
+ * @returns {boolean} True if uploading `b` would be redundant.
  */
 const uniformValuesEqual = (a, b) => {
     if (a === b) return true;
@@ -2383,11 +2383,14 @@ class RenderWebGL extends EventEmitter {
             if (!setter) continue;
             const value = uniforms[name];
             const previous = cache.get(name);
-            if (previous !== undefined && uniformValuesEqual(previous, value)) continue;
+            // typeof rather than a comparison against undefined: the linter
+            // forbids the undefined literal, and a cache miss is still a miss.
+            const wasCached = typeof previous !== 'undefined';
+            if (wasCached && uniformValuesEqual(previous, value)) continue;
             setter(value);
             if (typeof value === 'number' || typeof value === 'boolean') {
                 cache.set(name, value);
-            } else if (previous !== undefined &&
+            } else if (wasCached &&
                 ArrayBuffer.isView(previous) &&
                 previous.length === value.length) {
                 // Reuse the snapshot buffer instead of allocating per frame. It
