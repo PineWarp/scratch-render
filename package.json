@@ -1,13 +1,13 @@
 {
   "name": "scratch-render",
   "version": "0.1.0",
-  "description": "WebGL Renderer for Bilup",
-  "author": "Bilup",
+  "description": "WebGL Renderer for PineWarp",
+  "author": "PineWarp",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/Bilup/scratch-render#readme",
+  "homepage": "https://github.com/PineWarp/scratch-render#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Bilup/scratch-render.git"
+    "url": "git+ssh://git@github.com/PineWarp/scratch-render.git"
   },
   "main": "./dist/node/scratch-render.js",
   "browser": "./src/index.js",

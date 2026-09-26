@@ -1,16 +1,15 @@
-# Bilup/scratch-render
-
-scratch-render modified for use in [Bilup](https://bilup.org/). We've optimized some operations and added a lot of options.
+# PineWarp/scratch-render 🍍
+scratch-render modified for use in [PineWarp](https://bilup.org/). We've optimized some operations and added a lot of options.
 
 ## Setup
 
-See https://docs.bilup.org/development/getting-started to setup the complete Bilup environment.
+See https://docs.bilup.org/development/getting-started to setup the complete PineWarp environment.
 
 If you just want to play with the render then it's the same process as upstream scratch-render.
 
 ## API
 
-Public APIs are compatible with a vanilla scratch-render. Bilup/scratch-render is a drop-in replacement for scratch-render.
+Public APIs are compatible with a vanilla scratch-render. PineWarp/scratch-render is a drop-in replacement for scratch-render.
 
 Notable public API additions include:
 
